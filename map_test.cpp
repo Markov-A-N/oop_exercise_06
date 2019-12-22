@@ -4,8 +4,8 @@
 #include <utility>
 
 int main() {
-	std::map<int, int, std::less<int>, allocator<std::pair<int, int>, 80>> m;
-	for (int i = 0; i < 2; i++) {
+	std::map<int, int, std::less<int>, allocator<std::pair<int, int>, 120>> m;
+	for (int i = 0; i < 3; i++) {
 		m[i] = i;
 	}
 	for (auto it = m.begin(); it != m.end(); it++) {
