@@ -30,8 +30,14 @@ int main() {
 					std::cout << "______________________________________" << std::endl;
 					continue;
 				}
-				
-				q.Push(t);
+				try {
+					q.Push(t);
+				}
+				catch (std::bad_alloc &e) {
+					std::cout << e.what() << std::endl;
+					std::cout << "______________________________________" << std::endl;
+					continue;
+				}
 				std::cout << "______________________________________" << std::endl;
 			}
 			else if (cmd == "Iter") {
@@ -59,7 +65,13 @@ int main() {
 				for (unsigned int cnt = 0; cnt < i; cnt++) {
 					it++;
 				}
-				q.Insert(it, t);
+				try {
+					q.Insert(it, t);
+				} catch (std::bad_alloc &e) {
+					std::cout << e.what() << std::endl;
+					std::cout << "______________________________________" << std::endl;
+					continue;
+				}
 			}
 			else {
 				std::cout << "Invalid input" << std::endl;
