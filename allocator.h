@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <exception>
-//#include <vector>
 #include "vector.h"
 
 template<typename T, size_t ALLOC_SIZE>
