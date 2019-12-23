@@ -3,7 +3,7 @@
 #include "queue.h"
 #include "allocator.h"
 
-const int alloc_size = 168;
+const int alloc_size = 280;
 
 int main() {
 	Queue<Triangle<int>, allocator<Triangle<int>, alloc_size>> q;

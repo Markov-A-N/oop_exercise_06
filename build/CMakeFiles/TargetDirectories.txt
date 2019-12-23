@@ -1,4 +1,0 @@
-/home/oem/Documents/oop/oop_exercise_06/build/CMakeFiles/rebuild_cache.dir
-/home/oem/Documents/oop/oop_exercise_06/build/CMakeFiles/edit_cache.dir
-/home/oem/Documents/oop/oop_exercise_06/build/CMakeFiles/map_test.dir
-/home/oem/Documents/oop/oop_exercise_06/build/CMakeFiles/oop_exercise_06.dir

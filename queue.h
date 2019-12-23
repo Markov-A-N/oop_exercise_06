@@ -145,10 +145,11 @@ void Queue<T, Allocator>::Pop() {
 template<typename T, typename Allocator>
 typename Queue<T, Allocator>::ForwardIterator Queue<T, Allocator>::Insert(const typename Queue<T, Allocator>::ForwardIterator it, const T &val) {
 	if (it == ForwardIterator{}) { //пустой список или конец 
-		Push(val);
 		if (tail.lock() == nullptr) { // пустой список
+			Push(val);
 			return Begin();
 		} else {
+			Push(val);
 			return tail.lock();
 		}
 	}
@@ -157,13 +158,13 @@ typename Queue<T, Allocator>::ForwardIterator Queue<T, Allocator>::Insert(const 
 	std::shared_ptr<Node> newNode{newptr, deleter{&allocator}};
 	if (it == Begin()) {//начало
 		newNode->next = it.ptr.lock();
-		it->prev.lock() = newNode;
+		it.ptr.lock()->prev = newNode;
 		head = newNode;
 	} else {
 		newNode->next = it.ptr.lock();
-		it->prev.lock()->next = newNode;
+		it.ptr.lock()->prev.lock()->next = newNode;
 		newNode->prev = it->prev;
-		it->prev.lock() = newNode;
+		it.ptr.lock()->prev.lock() = newNode;
 	}
 
 	size++;
